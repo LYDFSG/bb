@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html ng-app="ionicApp">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>Test Assignment</title>
+    <link rel="stylesheet" type="text/css" href="font/iconfont.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <script src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="release/css/ionic.min.css">
+    <link rel="stylesheet" href="animate/animate.min.css">
+    <script src="release/js/ionic.bundle.min.js"></script>
+    <script src="lib/jquery.fly.min.js" type="text/javascript" charset="utf-8"></script>
+
+  </head>
+  <body>
+    <ion-nav-bar id="myheader" animation="nav-title-slide-ios7" 
+             type="bar-positive" 
+             back-button-type="button-icon" 
+             back-button-icon="ion-arrow-left-c"
+             align-title="center" style="background:#fdbd56 !important">
+             <ion-nav-back-button class="button-clear" style="color:#fff">走你</ion-nav-back-button>
+    </ion-nav-bar>
+             
+    <ion-nav-view animation="slide-left-right">
+
+    </ion-nav-view>
+
+
+    <script id="tabs.html" type="text/ng-template">
+      <ion-tabs id="tabs" tabs-style="tabs-icon-top" tabs-type="tabs-positive" class="tabs-icon-top animated">
+
+        <ion-tab title="Menu" icon="ion-clipboard" href="#/tab/home">
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="History" icon="ion-social-usd" href="#/tab/about">
+          <ion-nav-view name="about-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Account" icon="ion-person" ui-sref="tabs.contact">
+          <ion-nav-view name="contact-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="Blog" icon="ion-android-bookmark" ui-sref="tabs.blog" nav-transition="ios">
+          <ion-nav-view name="blog-tab"></ion-nav-view>
+        </ion-tab>
+
+        <ion-tab title="About Us" icon="ion-person-stalker" ui-sref="tabs.aboutus" nav-transition="ios">
+          <ion-nav-view name="aboutus-tab"></ion-nav-view>
+        </ion-tab>
+
+      </ion-tabs>
+    </script> 
+    <script id="home.html" type="text/ng-template">
+      <ion-view title="Home">
+        <ion-content has-header="true">
+            <ion-slide-box show-pager="false" class="has-header" on-slide-changed="slideChanged($index)">
+              <ion-slide ng-repeat="slide in slides">
+                <div id="products" class="list">
+                  <a ng-repeat="item in tabs" class="item item-thumbnail-left" href="#">
+                    <img ng-src="img/foods.jpg" width="30" height="30" alt=""> 
+                    <h2>{{slide.name}}</h2>
+                    <p id="descript">{{slide.dirscript}}</p>
+                    <p><span class="left span-price">{{slide.price}}</span><button ng-click="increase($event,$index)" class="btn bt1">+</button><button class="btn bt2">{{btnCount}}</button>
+                    <button ng-click="reduce($event,$index)" class="btn bt3">-</button></p>
+                  </a>
+                </div>          
+              </ion-slide>
+            </ion-slide-box>
+        </ion-content>
+         <a style="opacity:0.3" ng-click="hiddenTabs()" id="cart-p" href="#/tab/facts2">
+                <ul class="list">
+                    <li class="item">
+                    <div class="row">
+                      <div id="myCart" class="col .col-33 text-left"><span class="cart-icon iconfont icon-tubiao4" style="font-size:32px"><span id="count" class="span-count">{{sumCount}}</span></span></div>
+                      <div class="col .col-33 text-center">Cart</div>
+                      <div class="col .col-33 text-right">$220</div>                    
+                    </div>
+                    </li>
+                </ul>
+                </a>
+        <ion-scroll direction="x"  style="height: 50px; position: relative; top: 44px;"> 
+          <div style="height: 50px;">
+          <ion-tabs id="scroll-tabs" class="tabs-striped tabs-top">
+            <ion-tab id="tab-flex" ng-repeat="item in tabs" on-select="selectedTab($index)" title="{{item.name}}"></ion-tab>
+          </ion-tabs>  
+          </div>
+        </ion-scroll> 
+       </ion-view>
+    </script>
+    <script id="facts.html" type="text/ng-template">
+      <ion-view title="Account">
+        <ion-content has-header="true" padding="true">
+          <p>Banging your head against a wall uses 150 calories an hour.</p>
+          <p>
+            <a class="button icon ion-home" href="#/tab/home"> Home</a>
+            <a class="button icon icon-right ion-chevron-right" href="#/tab/facts2">More Facts</a>
+          </p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="facts2.html" type="text/ng-template">
+      <ion-view title="Cart">
+        <ion-content has-header="true" padding="true">
+        <div class="list">
+                  <div class="item item-thumbnail-left" href="#">                   
+                    <h2>{{slide.name}}</h2>
+                    <p id="descript">{{slide.dirscript}}</p>
+                    <p><span class="left span-price">$28</span><button class="btn bt1">+</button><button class="btn bt2">0</button><button class="btn bt3">-</button></p>
+                  </div>
+                  <div class="item item-thumbnail-left" href="#">                 
+                    <h2>{{slide.name}}</h2>
+                    <p id="descript">{{slide.dirscript}}</p>
+                    <p><span class="left span-price">$28</span><button class="btn bt1">+</button><button class="btn bt2">0</button><button class="btn bt3">-</button></p>
+                  </div>
+                  <div class="item item-thumbnail-left" href="#">                
+                    <h2>{{slide.name}}</h2>
+                    <p id="descript">{{slide.dirscript}}</p>
+                    <p><span class="left span-price">$28</span><button class="btn bt1">+</button><button class="btn bt2">0</button><button class="btn bt3">-</button></p>
+                  </div>
+                </div>
+        </ion-content>
+        <div id="verify" >
+                <ul class="list">
+                    <li class="item">
+                    <div class="row">
+                      <div id="myCart" class="col .col-33 text-left">add a promotion code</div>
+                      <input class="col .col-33 text-center" style="border-radius:4px" type="text">
+                      <button class="btn btn-small col .col-33 text-center" style="margin-left:10px;border-radius:4px">verify</button>                    
+                    </div>
+                    </li>
+                </ul>
+                </div>
+        <div id="fact-cart">
+                <ul class="list">
+                    <li class="item">
+                    <div class="row">
+                      <div id="myCart" class="col .col-33 text-left"><span class="cart-icon iconfont icon-tubiao4" style="font-size:32px"><span id="count">0</span></span></div>
+                      <div class="col .col-33 text-center">Cart</div>
+                      <div class="col .col-33 text-right">$220</div>                    
+                    </div>
+                    </li>
+                </ul>
+                </div>
+      </ion-view>
+    </script>
+
+    <script id="about.html" type="text/ng-template">
+      <ion-view title="About">
+        <ion-content has-header="true" padding="true">
+          <h3>Create hybrid e.</h3>
+          <p>Free and open onents for apps.</p>
+          <p>Built wJS.</p>
+          <p>
+            <a class="button icon icon-right ion-chevron-right" href="#/tab/navstack">Tabs Nav Stack</a>
+          </p>
+        </ion-content>
+      </ion-view>
+    </script>
+
+    <script id="nav-stack.html" type="text/ng-template">
+      <ion-view title="Tab Nav Stack">
+        <ion-content has-header="true" padding="true">
+          <p><img src="http://ionicframework.com/img/diagrams/tabs-nav-stack.png" style="width:100%"></p>
+        </ion-content>
+      </ion-view>
+    </script>
+  <!-- contact模板 -->
+    <script id="contact.html" type="text/ng-template">
+      <ion-view title="Contact">
+        <ion-content has-header="true" padding="true">
+          <p>gaodaxing</p>
+          <p>hello world</p>
+        </ion-content>
+      </ion-view>
+    </script>
+ <!-- blog模板 -->
+  <script id="blog.html" type="text/ng-template">
+      <ion-view title="Blog">
+        <ion-content has-header="true" padding="true">
+          <p>Blog</p>
+          <p>Blog Blog</p>
+        </ion-content>
+      </ion-view>
+    </script>
+  <!--aboutus模板  -->
+    <script id="aboutus.html" type="text/ng-template">
+      <ion-view title="About Us">
+        <ion-content has-header="true" padding="true">
+          <p>About Us</p>
+          <p>About Us About Us</p>
+        </ion-content>
+      </ion-view>
+    </script>
+    <script src="js/app.js"></script>
+    <script src="js/controller/controller.js"></script>
+    <script src="js/service/service.js"></script>
+  </body>
+</html>
+

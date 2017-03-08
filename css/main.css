@@ -1,0 +1,146 @@
+html,body{
+	margin: 0;
+	padding: 0;
+}
+body{
+  
+}
+#myheader{
+	background: #fdbd56;
+}
+.bar-header{
+	background:#fdbd56 !important; 
+	color: #fff;
+}
+#myCart{
+	
+}
+#count{
+	position:absolute;
+	right: -30%;
+	top: -5px;
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	text-align: center;
+	font-size: 16px;
+	border-radius: 10px;
+	background: #e32940;
+}
+.cart-icon{
+	position: relative;
+}
+#cart-p{
+	width: 100%;
+	position: fixed;
+	bottom: 60px;
+	left: 0;
+	z-index: 9999;
+}
+#fact-cart{
+	width: 100%;
+	position: fixed;
+	bottom: 40px;
+	left: 0;
+	z-index: 9999;
+}
+#scroll-tabs{
+	display: flex;
+	white-space:nowrap;
+	overflow: scroll;
+}
+#tab-flex{
+	
+}
+#verify{
+	width: 100%;
+	position: fixed;
+	bottom: 100px;
+	left: 0;
+	z-index: 9999;
+}
+#verify input{
+	border: 1px solid #000
+}
+#verify button{
+	background: #333;
+	color: #fff;
+}
+#verify li.item{
+	background: #fff;
+	color: #333;
+}
+#products button{
+	background: #524d4d;
+	color: #fff;
+}
+div.row{
+	width: 100%;
+	margin:0 auto;
+}
+.bt1,.bt2,.bt3{
+	float: right;
+	margin-left: 3px;
+}
+.span-price{
+	float: left
+	display:block;
+	line-height: 34px;
+	width: 34px;
+	height: 34px;
+}
+#descript{
+	line-height: 20px;
+}
+div.list img{
+	border-radius: 5px;
+}
+#cart-icon{
+	width: 30px;
+	height: 30px;
+	display: inline-block;
+}
+div.list:first-child{
+     margin-top:3px !important;
+}
+li.item{
+	color: #fff;
+	padding:6px 10px;
+	margin: 0 10px;
+	border:none;
+	border-radius: 5px;
+	background: #fdbd56;
+}
+a.tab-item{
+	width: 25% !important;
+}
+
+li.item .col{
+	padding-left: 5px;
+}
+
+.tabs-top>.tabs,.tabs.tabs-top {
+     top: 0px !important;
+    padding-top: 0;
+    background-position: bottom;
+    border-top-width: 0;
+    border-bottom-width: 1px;
+}
+
+.scroll-bar-h {
+    right: 2px;
+    bottom: 3px;
+    left: 2px;
+    height: 0px !important;
+}
+
+.scroll-bar {
+    position: absolute;
+    z-index: 0 !important;
+}
+
+a:hover, a:focus {
+    color: #2a6496;
+     text-decoration: none !important; 
+}
